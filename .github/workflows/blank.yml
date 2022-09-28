@@ -6,7 +6,7 @@ pipeline {
 			deleteDir()
 			checkout scm
 			script {
-				echo "[INFO] Loading JSON configuration from : ${env.WORKSPACE}/pipeline. json"
+				//echo "[INFO] Loading JSON configuration from : ${env.WORKSPACE}/pipeline. json"
 				json0bj = readJSON file: "${env.WORKSPACE}/pipeline. json"
 				echo "[INFO] Done Loading JSON configuration"
 
