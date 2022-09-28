@@ -1,34 +1,17 @@
-{
-	"name": "CI",
-	"on": {
-		"push": {
-			"branches": [
-				"main"
-			]
-		},
-		"pull_request": {
-			"branches": [
-				"main"
-			]
-		},
-		"workflow_dispatch": null
-	},
-	"jobs": {
-		"build": {
-			"runs-on": "ubuntu-latest",
-			"steps": [
-				{
-					"uses": "actions/checkout@v3"
-				},
-				{
-					"name": "Run a one-line script",
-					"run": "echo Hello, world!"
-				},
-				{
-					"name": "Run a multi-line script",
-					"run": "echo Add other actions to build,\necho test, and deploy your project.\n"
-				}
-			]
+pipeline {
+
+	stages {
+
+		steps {
+			deleteDir()
+			checkout scm
+			script {
+				echo "[INFO] Loading JSON configuration from : ${env.WORKSPACE}/pipeline. json"
+				json0bj = readJSON file: "${env.WORKSPACE}/pipeline. json"
+				echo "[INFO] Done Loading JSON configuration"
+
+			}
+
 		}
 	}
 }
