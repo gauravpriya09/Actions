@@ -1,17 +1,1 @@
-pipeline {
-
-	stages {
-
-		steps {
-			deleteDir()
-			checkout scm
-			script {
-				
-				json0bj = readJSON file: "${env.WORKSPACE}/pipeline. json"
-				echo "[INFO] Done Loading JSON configuration"
-
-			}
-
-		}
-	}
-}
+mvn -version
